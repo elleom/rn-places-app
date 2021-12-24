@@ -8,21 +8,24 @@ import MapScreen from '../screens/MapScreen';
 import {Platform} from "react-native";
 import Colors from "../constants/Colors";
 
-const PlaceNavigator = createStackNavigator({
-    Places: PlacesListScreen,
-    PlaceDetails: PlaceDetailScreen,
-    NewPlace: NewPlaceScreen,
-    MapScreen: MapScreen
-}, {
-    defaultNavigationOptions: {
-        headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
-        },
-        headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary
+const PlacesNavigator = createStackNavigator(
+    {
+        Places: PlacesListScreen,
+        PlaceDetail: PlaceDetailScreen,
+        NewPlace: NewPlaceScreen,
+        Map: MapScreen
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
+            },
+            headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary
+        }
     }
-})
+);
 
-export default createAppContainer(PlaceNavigator)
+export default createAppContainer(PlacesNavigator);
 
 
 
